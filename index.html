@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>Sunday K100</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#f7f7f7,#e9eef5);color:#111827;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{width:100%;max-width:430px;background:#fff;border-radius:24px;padding:28px;box-shadow:0 15px 45px rgba(0,0,0,.12);text-align:center}
+.badge{display:inline-block;background:#111827;color:#fff;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700}
+h1{font-size:34px;margin:16px 0 8px}.amount{font-size:48px;font-weight:800;margin:8px 0}
+p{line-height:1.5;color:#4b5563}
+input{width:100%;padding:15px;border:1px solid #d1d5db;border-radius:13px;font-size:16px;margin:10px 0 18px;outline:none}
+input:focus{border-color:#111827}.question{font-weight:700;margin:8px 0 14px}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{border:0;border-radius:14px;padding:16px;font-size:17px;font-weight:700;cursor:pointer}
+.yes{background:#16a34a;color:#fff}.no{background:#e5e7eb;color:#111827}
+.small{font-size:12px;color:#6b7280;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="badge">SUNDAY CONTRIBUTION</div>
+  <h1>Sunday K100</h1>
+  <div class="amount">K100</div>
+  <p>Would you like to join our Sunday K100 contribution?</p>
+  <input id="name" type="text" placeholder="Enter your name" autocomplete="name">
+  <div class="question">Are you in?</div>
+  <div class="buttons">
+    <button class="yes" onclick="respond('YES, I\\'M IN')">YES, I'M IN</button>
+    <button class="no" onclick="respond('NO, I CAN\\'T')">NO, I CAN'T</button>
+  </div>
+  <div class="small">Your response will open WhatsApp and send it to the organiser.</div>
+</div>
+<script>
+const ORGANIZER_WHATSAPP = "67581130100";
+function respond(answer){
+  const name = document.getElementById("name").value.trim();
+  if(!name){ alert("Please enter your name first."); return; }
+  const message = `Sunday K100 Response\n\nName: ${name}\nResponse: ${answer}`;
+  window.location.href = "https://wa.me/" + ORGANIZER_WHATSAPP + "?text=" + encodeURIComponent(message);
+}
+</script>
+</body>
+</html>
